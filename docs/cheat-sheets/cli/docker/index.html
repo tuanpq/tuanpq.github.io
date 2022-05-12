@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background-color: rgb(234, 234, 234);
+        margin: 64px;
+      }
+      h2 {
+        color: blue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      p {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      table {
+        font-family: "Courier New", Courier, monospace;
+        font-size: medium;
+        padding-bottom: 8px;
+      }
+      th {
+        color: rgb(164, 64, 164);
+        text-align: start;
+      }
+      li {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+    <title>Docker Cheat Sheets</title>
+  </head>
+  <body>
+    <h2>Keywords</h2>
+    <ul>
+      <li>Docker Engine, Docker CLI, Docker Compose, Docker Build, Docker Image, Docker Container, Dockerfile</li>
+    </ul>
+    <h2>Docker Architecture</h2>
+    <img
+      src="./assets/docker-architecture.png"
+    />
+    <h2>Docker Deamon</h2>
+    <p>This is a background process that manages Docker objects such as images, containers, storage volumes, and networks.</p>
+    <h2>Images</h2>
+    <p>Docker image is packed software that includes everything needed to run an application.</p>
+    <table>
+      <th>Build an image using a Dockerfile in current directory</th>
+      <tr>
+        <td>$docker build -t &lt;image_name&gt; .</td>
+      </tr>
+    </table>
+    <table>
+      <th>Build an image using a Dockerfile without cache</th>
+      <tr>
+        <td>$docker build -t &lt;image_name&gt; --no-cache .</td>
+      </tr>
+    </table>
+    <table>
+      <th>Create an image from a container's changes</th>
+      <tr>
+        <td>$docker commit &lt;container&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Show history of an image</th>
+      <tr>
+        <td>$docker history &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Save an image to an archive file</th>
+      <tr>
+        <td>$docker save -o &lt;tar_archive_file&gt; &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Load an image from an archive file</th>
+      <tr>
+        <td>$docker load -i &lt;tar_archive_file&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>List local images</th>
+      <tr>
+        <td>$docker images</td>
+      </tr>
+    </table>
+    <table>
+      <th>Delete an Image</th>
+      <tr>
+        <td>$docker rmi &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Remove all unused images</th>
+      <tr>
+        <td>$docker image prune</td>
+      </tr>
+    </table>
+    <h2>Containers</h2>
+    <p>A container is a runtime instance of a docker image.</p>
+    <table>
+      <th>Create a container without starting it</th>
+      <tr>
+        <td>$docker create &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Create and run a container from an image, with a custom name</th>
+      <tr>
+        <td>$docker run --name &lt;container_name&gt; &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Create and run a container with and publish a container’s port(s) to the host</th>
+      <tr>
+        <td>$docker run -p &lt;host_port&gt;:&lt;container_port&gt; &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Create and run a container in the background</th>
+      <tr>
+        <td>$docker run -d &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Start or stop an existing container</th>
+      <tr>
+        <td>$docker start|stop &lt;container&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Kill a running container</th>
+      <tr>
+        <td>$docker kill &lt;container&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Remove a stopped container</th>
+      <tr>
+        <td>$docker rm &lt;container&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Open a shell inside a running container</th>
+      <tr>
+        <td>$docker exec -it &lt;container&gt; sh</td>
+      </tr>
+    </table>
+    <table>
+      <th>Fetch and follow the logs of a container</th>
+      <tr>
+        <td>$docker logs -f &lt;container&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>To inspect a running container</th>
+      <tr>
+        <td>$docker inspect &lt;container&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>To list currently running containers</th>
+      <tr>
+        <td>$docker ps</td>
+      </tr>
+    </table>
+    <table>
+      <th>List all docker containers (running and stopped)</th>
+      <tr>
+        <td>$docker ps --all</td>
+      </tr>
+    </table>
+    <table>
+      <th>View resource usage stats</th>
+      <tr>
+        <td>$docker container stats</td>
+      </tr>
+    </table>
+    <table>
+      <th>Copy files/folders between a container and the host's filesystem</th>
+      <tr>
+        <td>$docker cp &lt;container&gt;:&lt;source_path&gt; &lt;destination_path&gt;|-</td>
+      </tr>
+      <tr>
+        <td>$docker cp &lt;source_path&gt;|- &lt;container&gt;:&lt;destination_path&gt;</td>
+      </tr>
+    </table>
+    <h2>Docker Hub</h2>
+    <p>Docker Hub is a service provided by Docker for finding and sharing container images.</p>
+    <table>
+      <th>Search Hub for an image</th>
+      <tr>
+        <td>$docker search &lt;image_name&gt;</td>
+      </tr>
+    </table>
+    <table>
+      <th>Pull an image from a Docker Hub</th>
+      <tr>
+        <td>$docker pull &lt;image_name&gt;</td>
+      </tr>
+    </table>
+  </body>
+</html>
