@@ -1,4 +1,8 @@
-# Professional Practices in Software Engineering
+## [Career Path](/career-path)
+
+## Lectures & Courses
+
+## Blogs
 
 ## Books
 
@@ -10,5 +14,5 @@
 
 | E-mail | Note |
 |--------|------|
-| tuanpq{at}gmail{dot}com | {at} = @, {dot} = . |
+| tuanpq{at}gmail{dot}com | {at}=@, {dot}=. |
 
