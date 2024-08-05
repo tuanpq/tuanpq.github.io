@@ -1,0 +1,29 @@
+{
+	"personalInformation": {
+		"firstName": "Tuan",
+		"lastName": "Pham",
+		"dateOfBirth": "1983/06/03",
+		"sex": "Male",
+		"nationality": "Vietnamese"
+	},
+	"workExperience": [
+		{
+			"id": 1,
+			"term": "2005/09 - 2013/06",
+			"orgnization": "FPT Software",
+			"position": "Project Manager",
+			"description": "Project Manager's job description",
+			"domain": ["Desktop Application", "Web Application"],
+			"technicalStack": ["C", "C++", "Java"]
+		},
+		{
+			"id": 2,
+			"term": "2013/07 - Present",
+			"orgnization": "NTQ Solution",
+			"position": "Technical Leader",
+			"description": "Technical Leader's job description",
+			"domain": ["Web Application", "Mobile Application"],
+			"technicalStack": ["Java", "Kotlin", "Objective-C", "Swift"]
+		}
+	]
+}
